@@ -8,9 +8,9 @@ function getWeather(lat, lon) {
   //fetch가 ajax같은 효과가 있는듯 하다 새로고침 없이 데이터를 가져온다고 한다.
   //then은 ajax의 success:function을 생각하면 된다. 즉 페이지 접속이 성공한 뒤
   //해당 페이지로 부터 받아온 정보를 어떻게 다룰지 결정한다.
-  fetch(
-    `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
-  )
+  const url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
+  console.log(url);
+  fetch(url)
     .then(function (data) {
       //받아온 data는 네트워크 정보가 모두 담겨있고 우리는 거기서 json파일만 받아오면 된다.
       //하지만 json의 파일을 받아오는데 시간이 걸리므로 return해주고 다시 이작업이 끝나면 동작할 then을 해준다.
